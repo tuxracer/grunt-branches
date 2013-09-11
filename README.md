@@ -35,6 +35,12 @@ Or register a shortcut:
 grunt.registerTask 'buildall', ['branches:foo:b']
 ```
 
+### Events
+The following events are emitted and can be subscribed to using [grunt.emit.on](https://github.com/gruntjs/grunt/wiki/grunt.event)
+
+* **branches.checkedout** - params: branch, path
+* **branches.taskqueued** - params: branch, path
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][grunt].
 
