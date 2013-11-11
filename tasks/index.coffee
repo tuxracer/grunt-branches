@@ -5,7 +5,7 @@ exec = require('child_process').exec
 grunt = require 'grunt'
 
 fetchRemotes = (path) ->
-  Q.nfcall exec, "cd #{path}; git fetch -a; git remote prune origin", timeout: 5000
+  Q.nfcall exec, "cd #{path} && git fetch -a && git remote prune origin", timeout: 5000
 
 getBranchNames = (branches) ->
   branches
