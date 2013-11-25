@@ -1,7 +1,7 @@
 {
   "name": "grunt-branches",
   "description": "Run specified task against all remote branches of a git submodule",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/tuxracer/grunt-branches",
   "author": {
     "name": "Derek Petersen",
