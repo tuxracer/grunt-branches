@@ -39,6 +39,7 @@ grunt.registerTask 'buildall', ['branches:foo:b']
 The following events are emitted and can be subscribed to using [grunt.emit.on](https://github.com/gruntjs/grunt/wiki/grunt.event)
 
 * **branches.checkedout** - params: branch, path
+* **branches.commitinfo** - params: branch, hash, path
 * **branches.taskqueued** - params: branch, path
 
 ## Contributing
