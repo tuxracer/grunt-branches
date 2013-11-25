@@ -14,17 +14,17 @@ getBranchNames = (branches) ->
   .map (branch) ->
     branch.name.split('origin/')[1]
 
+cleanOutput = (output) ->
+  str = output.shift()
+  str.substr 0, str.length - 1
+
 getCommitHash = (path) ->
   Q.nfcall(exec, "cd #{path} && git rev-parse HEAD", timeout: 5000)
-  .then (output) ->
-    str = output.shift()
-    str.substr 0, str.length - 2
+  .then(cleanOutput)
 
 getCurrentBranch = (path) ->
   Q.nfcall(exec, "cd #{path} && git rev-parse --abbrev-ref HEAD", timeout: 5000)
-  .then (output) ->
-    str = output.shift()
-    str.substr 0, str.length - 1
+  .then(cleanOutput)
 
 queueTask = (branch, path, task) ->
   grunt.task.run "checkout:#{branch}:#{path}"
