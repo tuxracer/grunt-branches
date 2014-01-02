@@ -24,6 +24,8 @@ grunt.initConfig
   branches:
     foo:
       path: 'ext/foo'
+      options:
+        skip: '^skip-' # Skip branches that match this reg exp
 
   # ... other configs
 ```
