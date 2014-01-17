@@ -53,7 +53,7 @@ module.exports = (grunt) ->
       grunt.event.emit 'branches.checkedout', branch, path
       done()
 
-  grunt.registerMultiTask 'branches', 'Run specified task against all branches', (task = 'default') ->
+  grunt.registerMultiTask 'branches', 'Run specified task against all remote branches', (task = 'default') ->
     done = @async()
 
     path = @data.path
@@ -61,7 +61,7 @@ module.exports = (grunt) ->
     pattern = if skip? then new RegExp skip else null
     repo = git path
 
-    grunt.log.subhead "Queuing task #{colors.yellow(task)} for each branch"
+    grunt.log.subhead "Queuing task #{colors.yellow(task)} for each remote branch"
 
     fetchRemotes(path)
     .then ->
