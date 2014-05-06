@@ -13,6 +13,8 @@ getBranchNames = (branches) ->
     branch.name isnt 'origin/HEAD'
   .map (branch) ->
     branch.name.split('origin/')[1]
+  .filter (branch) ->
+    typeof branch is 'string'
 
 cleanOutput = (output) ->
   str = output.shift()
