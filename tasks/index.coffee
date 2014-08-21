@@ -60,6 +60,7 @@ module.exports = (grunt) ->
 
     path = @data.path
     skip = @options().skip
+    whitelist = @options().whitelist or []
     pattern = if skip? then new RegExp skip else null
     repo = git path
 
@@ -72,5 +73,6 @@ module.exports = (grunt) ->
     .then (branchNames) ->
       branchNames
       .forEach (branch) ->
-        queueTask branch, path, task unless branch.match pattern
+
+        queueTask branch, path, task unless branch.match pattern or (whitelist.length and whitelist.indexOf(branch) === -1)
     .then(done, grunt.fail.warn)
