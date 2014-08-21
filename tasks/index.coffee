@@ -73,6 +73,7 @@ module.exports = (grunt) ->
     .then (branchNames) ->
       branchNames
       .forEach (branch) ->
-
-        queueTask branch, path, task unless branch.match pattern or (whitelist.length and whitelist.indexOf(branch) is -1)
+        if branch.match pattern or ( whitelist.length > 0 and whitelist.indexOf(branch) is -1 ) 
+          return
+        queueTask branch, path, task
     .then(done, grunt.fail.warn)
