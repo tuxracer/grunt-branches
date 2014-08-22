@@ -72,7 +72,5 @@ module.exports = (grunt) ->
     .then (branchNames) ->
       branchNames
       .forEach (branch) ->
-        if pattern and !branch.match(pattern)
-          return      
-        queueTask branch, path, task
+        queueTask branch, path, task unless (pattern and !branch.match(pattern))
     .then(done, grunt.fail.warn)
