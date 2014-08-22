@@ -64,7 +64,7 @@ module.exports = (grunt) ->
     repo = git path
 
     grunt.log.subhead "Queuing task #{colors.yellow(task)} for each remote branch"
-    grunt.log.ok "Only queuing tasks for branches: #{whitelist.toString()}" unless whitelist.length is 0
+    grunt.log.ok "Only queuing tasks for branches that match pattern: #{match}" unless !pattern
     fetchRemotes(path)
     .then ->
       Q.nfcall repo.remotes.bind repo
