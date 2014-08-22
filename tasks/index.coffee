@@ -59,9 +59,8 @@ module.exports = (grunt) ->
     done = @async()
 
     path = @data.path
-    skip = @options().skip
-    whitelist = @options().whitelist or []
-    pattern = if skip? then new RegExp skip else null
+    match = @options().match
+    pattern = if match? then new RegExp match else null
     repo = git path
 
     grunt.log.subhead "Queuing task #{colors.yellow(task)} for each remote branch"
@@ -73,7 +72,7 @@ module.exports = (grunt) ->
     .then (branchNames) ->
       branchNames
       .forEach (branch) ->
-        if branch.match(pattern) or ( whitelist.length > 0 and whitelist.indexOf(branch) is -1 ) 
-          return
+        if pattern and !branch.match(pattern)
+          return      
         queueTask branch, path, task
     .then(done, grunt.fail.warn)
