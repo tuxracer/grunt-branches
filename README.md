@@ -25,7 +25,7 @@ grunt.initConfig
     foo:
       path: 'ext/foo'
       options:
-        skip: '^skip-' # Skip branches that match this reg exp
+        match: '^release/' # Only run task against branches that match this reg exp
 
   # ... other configs
 ```
@@ -48,6 +48,6 @@ The following events are emitted and can be subscribed to using [grunt.emit.on](
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][grunt].
 
 ## License
-Copyright (c) 2013, Derek Petersen
+Copyright (c) 2014, Derek Petersen
 
 Licensed under the MIT license.
