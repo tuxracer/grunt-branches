@@ -16,9 +16,6 @@
     "url": "https://github.com/tuxracer/grunt-branches/issues"
   },
   "main": "./tasks/index.coffee",
-  "scripts": {
-    "test": "grunt test"
-  },
   "license": "MIT",
   "engines": {
     "node": ">=0.10.0"
